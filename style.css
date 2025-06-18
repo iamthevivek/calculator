@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.calculator {
+    background-color: #00809D;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+    min-width: 280px;
+}
+
+.display {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px 15px;
+    margin-bottom: 15px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.expression {
+    font-size: clamp(24px, 8vw, 32px);
+    color: #333;
+    margin-bottom: 8px;
+    min-height: 30px;
+    font-weight: 400;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    word-break: break-all;
+}
+
+.preview {
+    font-size: clamp(18px, 6vw, 24px);
+    color: #666;
+    opacity: 0.8;
+    min-height: 24px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    word-break: break-all;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(8px, 3vw, 15px);
+}
+
+button {
+    border: none;
+    border-radius: clamp(10px, 3vw, 15px);
+    font-size: clamp(20px, 6vw, 28px);
+    font-weight: 400;
+    height: clamp(50px, 15vw, 70px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.number {
+    background: #fff;
+    color: #333;
+    font-weight: 500;
+}
+
+.operator {
+    background: #fff;
+    color: #ff9500;
+    font-size: clamp(24px, 7vw, 32px);
+}
+
+.function {
+    background: #fff;
+    color: #ff9500;
+    font-size: clamp(18px, 5vw, 24px);
+}
+
+.zero {
+    grid-column: span 1;
+}
+
+.equals {
+    background: #ff9500;
+    color: white;
+}
+
+.clear {
+    color: #ff9500;
+}
+
+.backspace {
+    color: #ff9500;
+    font-size: clamp(16px, 4vw, 20px);
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .calculator {
+        padding: 10px;
+        border-radius: 15px;
+    }
+    
+    .display {
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        min-height: 100px;
+    }
+    
+    button {
+        min-height: 50px;
+    }
+    
+    .expression {
+        font-size: 28px;
+    }
+    
+    .preview {
+        font-size: 20px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .expression {
+        font-size: 24px;
+    }
+    
+    .preview {
+        font-size: 18px;
+    }
+    
+    button {
+        font-size: 22px;
+        min-height: 45px;
+    }
+    
+    .operator {
+        font-size: 26px;
+    }
+    
+    .function {
+        font-size: 20px;
+    }
+    
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+    .calculator {
+        padding: 25px;
+    }
+    
+    .display {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+        min-height: 140px;
+    }
+}
